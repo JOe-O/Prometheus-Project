@@ -1,0 +1,30 @@
+services:
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    network_mode: host
+  
+  node-exporter:
+    image: quay.io/prometheus/node-exporter:latest
+    container_name: node_exporter
+    restart: unless-stopped
+    pid: host
+    uts: host
+    userns_mode: host
+    cgroup: host
+    network_mode: host
+    privileged: true
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    network_mode: host
+
+volumes:
+  grafana-storage: {}

@@ -1,0 +1,14 @@
+[
+    {
+      "labels": {
+        "job": "dynamic"
+      },
+      "targets": [
+        "dynamic1:9101",
+        "dynamic2:9101",
+        "dynamic3:9101",
+        "dynamic4:9101"
+      ]
+    }
+  ]
+  
